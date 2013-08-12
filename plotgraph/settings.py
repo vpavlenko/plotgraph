@@ -1,5 +1,8 @@
 # Django settings for plotgraph project.
 
+import os
+
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -83,7 +86,9 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '_%flk4unzb6it+l=%e$(n)^75d_^7dsl9i(yvl$=_^3u&a+272'
+# SECRET_KEY = '_%flk4unzb6it+l=%e$(n)^75d_^7dsl9i(yvl$=_^3u&a+272'
+
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -168,7 +173,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
 
 # Static asset configuration
-import os
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
